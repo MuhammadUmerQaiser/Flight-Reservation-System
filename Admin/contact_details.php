@@ -150,7 +150,7 @@
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Flight Information</h6>
+                <h6 class="text-white text-capitalize ps-3">Contact Details</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -158,20 +158,18 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">S.No</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Flight Number</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">From</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">To</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Price</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Seats</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">S.No</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Client Name</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Client Email</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Message</th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
                         include('config.php');
-                        $query = "SELECT * FROM flight";
+                        $query = "SELECT * FROM contact";
                         $result = mysqli_query($con, $query);
                         $count = mysqli_num_rows($result);
                         $j = 0;
@@ -183,31 +181,25 @@
                         <td>
                             <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm"><?php echo (++$j) ?></h6>
+                                <h6 class="mb-0 text-sm"><?php echo (++$j); ?></h6>
                             </div>
                             </div>
                         </td>
                         <td>
                             <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm"><?php echo $records["Flight_No"]; ?></h6>
+                                <h6 class="mb-0 text-sm"><?php echo $records["Name"]; ?></h6>
                             </div>
                             </div>
-                        </td>
-                        <td>
-                        <span class="badge badge-sm bg-gradient-success"><?php echo $records["FromTo"]; ?></span>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <span class="badge badge-sm bg-gradient-success"><?php echo $records["Destination"]; ?></span>
+                            <span class="text-secondary text-xs font-weight-bold"><?php echo $records["Email"]; ?></span>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                            <span class="text-secondary text-xs font-weight-bold"><?php echo $records["Subject"]; ?></span>
                         </td>
                         <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold"><?php echo $records["Price"]; ?></span>
-                        </td>
-                        <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold"><?php echo $records["Seats"]; ?></span>
-                        </td>
-                        <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold"><?php echo $records["Date"]; ?></span>
+                            <span class="text-secondary text-xs font-weight-bold"><?php echo $records["Message"]; ?></span>
                         </td>
                         </tr>
                     <?php } ?>
