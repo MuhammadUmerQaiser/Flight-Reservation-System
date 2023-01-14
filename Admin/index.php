@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION["adminName"])){
-    header('Location: index.html');
+    header('Location: dashboard.php');
 }
 if(isset($_POST["email"])){
     $email = $_POST["email"];
@@ -9,7 +9,7 @@ if(isset($_POST["email"])){
 
     if($email == "admin@gmail.com" && $password == "admin123"){
         $_SESSION["adminName"] = "Admin";
-        header('Location: index.html');
+        header('Location: dashboard.php');
     }
     else{
         echo "<script>";
